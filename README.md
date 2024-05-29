@@ -210,7 +210,7 @@ Whether we use libraries like cuML (Python) or a code implementation of Kmeans a
 | 1000000    | 1000     | 0.351849 | 14.652058  |
 
 **Comparison between implementations:**
-<img src="kmeans_comparison/diagram.png" alt=" " >
+<img src="assets/kmeans_comparison.png" alt=" " >
 
 ## (2) KNN
 **Overview of Implementations and Measurements**<br>
@@ -223,17 +223,23 @@ The objective is to compare the performance of the KNN algorithm across these im
 **1. CPU-based KNN Implementation in Python**<br>
 The CPU implementation is straightforward and involves calculating the Euclidean distance between each query point and all reference points, sorting these distances, and selecting the nearest k neighbors.<br>
 I measured the execution time of this implementation for different sizes of reference points and various values of k.<br>
+<img src="assets/knn_cpu.png" alt=" " >
 
 **2. GPU-based KNN Implementation in Python**<br>
 In the CUDA implementation of the K-Nearest Neighbors (KNN) algorithm, parallelism is achieved through the use of CUDA threads and blocks. Each thread in a CUDA block processes one query point. This means that if we have m query points, we will launch m threads.<br> 
 I measured the execution time of this implementation for different sizes of reference points and various values of k.<br>
+<img src="assets/knn_gpu.png" alt=" " >
 
 
 **3. cuML-based KNN Implementation with cuML in Python**<br>
 The cuML-based implementation uses RAPIDS AI libraries to perform KNN computations. This approach also utilizes GPU acceleration but through a higher-level API provided by cuML.<br>
+<img src="assets/knn_cuml.png" alt=" " >
 
 **Spead up of GPU over CPU = CPU time/GPU time= 213.35**<br>
 **Spead up of RAPIDS cuml over my GPU= CPU time/GPU time= 6.656**<br>
+
+## Future work
+1- PCA <br>
 
 
 
